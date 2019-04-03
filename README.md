@@ -1,6 +1,6 @@
 # Data Science Projects
-## Data Wrangling, inferential statistics and machine learning projects
-Python codes can be found in the folder. 
+## Data Wrangling, inferential statistics and machine learning & deep learning projects
+Python codes for the mini projects can be found in the folder. 
 ## Capstone Project 1: Earnings Surprise Predictions using Machine Learning
 ### Summary
 #### Problem statement
