@@ -65,5 +65,6 @@ This project leverages data from a number of sources to predict the movements of
 * Developers and social data:
     * More Blockchain data on Quandl, including Bitcoin My Wallet Users, Bitcoin difficulty, Bitcoin Miners Revenue, etc. (Quandl API)
     * CoinGecko
+
 Both daily data and hourly data were acquired. The hourly data was later aggregated to form 4-hourly, 8-hourly, 12-hourly data for experimentation.
 
