@@ -68,3 +68,21 @@ This project leverages data from a number of sources to predict the movements of
 
 Both daily data and hourly data were acquired. The hourly data was later aggregated to form 4-hourly, 8-hourly, 12-hourly data for experimentation.
 
+#### Data cleaning and wrangling
+Wavelet Transform
+
+#### Exploratory data analysis
+##### Correlation analysis
+
+##### ARIMA
+
+##### Log returns
+
+#### Machine learning techniques
+
+#### Pairs trading
+
+#### Deep learning results
+
+#### Trading strategy
+
