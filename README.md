@@ -1,4 +1,4 @@
-# Data Science Projects Completed So Far
+# Data Science Projects
 ## Data Wrangling, inferential statistics and machine learning projects
 Python codes can be found in the folder. 
 ## Capstone Project 1: Earnings Surprise Predictions using Machine Learning
