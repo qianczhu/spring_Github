@@ -1,6 +1,6 @@
-# Data Science Projects Completed So Far
-## Data Wrangling, inferential statistics and machine learning projects
-Python codes can be found in the folder. 
+# Data Science Projects
+## Data Wrangling, inferential statistics and machine learning & deep learning projects
+Python codes for the mini projects can be found in the folder. 
 ## Capstone Project 1: Earnings Surprise Predictions using Machine Learning
 ### Summary
 #### Problem statement
@@ -17,7 +17,7 @@ _Intended use_:
 * Exploratory data analysis
 * Machine learning
 
-#### Features engineering
+#### Feature engineering
 Example: Raw data contains trader mood message volume and sentiment data. The transformed data contains sum of total message volumes for 5 days prior, as well as weighted sum of sentiment at date-0, date-1, date-2, date-3, date-4 (prior), with increasing weight approaching event date. 
 
 #### Statistical analysis
@@ -50,7 +50,39 @@ For all models, hyperparameter tunings were performed by using RandomizedSearchC
 Top stocks with predicted label “+1”, ranked by probability, for 80-day drift:
 ![results table](/results_table.png)
 
-Buy the top predicted stocks and hold for 80 days after event date.
+Buy the top predicted stocks and hold for 80 days on the second day after earnings report release.
 
 ## Capstone Project 2: Prediction of cryptocurrency movements using deep learning
-To be updated.
+### Summary
+#### Problem statement
+Cryptocurrencies are a relatively new type of financial instrument, which has sparked new interest in both the public and financial domains recently. Price movements of cryptocurrencies can sometimes be volatile, which poses a challenge for investors. This project aims to use deep learning to make predictions for the top cryptocurrencies, based on a combination of price data and fundamentals data. The prediction will be in the form of direction of price movement, i.e., up or down for a number of time intervals.
+
+#### Data acquisition
+This project leverages data from a number of sources to predict the movements of major cryptocurrencies such as Bitcoin, Ethereum, Ripple, etc. The data sources consist of the following:
+* Cryptocurrency prices from: 
+    * Quandl API
+    * CryptoCompare API (prices and volumes)
+* Developers and social data:
+    * More Blockchain data on Quandl, including Bitcoin My Wallet Users, Bitcoin difficulty, Bitcoin Miners Revenue, etc. (Quandl API)
+    * CoinGecko
+
+Both daily data and hourly data were acquired. The hourly data was later aggregated to form 4-hourly, 8-hourly, 12-hourly data for experimentation.
+
+#### Data cleaning and wrangling
+Wavelet Transform
+
+#### Exploratory data analysis
+##### Correlation analysis
+
+##### ARIMA
+
+##### Log returns
+
+#### Machine learning techniques
+
+#### Pairs trading
+
+#### Deep learning results
+
+#### Trading strategy
+
