@@ -71,7 +71,8 @@ Both daily data and hourly data were acquired. The hourly data was later aggrega
 #### Data cleaning and wrangling
 Data from different sources were merged and aggregated. Missing values were dealt with. To filter out the high frequency noise, Wavelet Transform was used (Python _pywt_ package): 
 
-_Wavelet figure
+![Fig1](/proj2_fig1.png)
+Fig. 1. Applying Wavelet Transformation to the data. 
 
 The data shown above was for the number of transactions made by My Wallet Users per day. The original data contains arbitrary high frequency noise---after being filtered out, we are left with a smoother curve that still captures major disruptions (which may correspond to events) in the data.  
 
