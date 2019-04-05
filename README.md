@@ -69,12 +69,32 @@ This project leverages data from a number of sources to predict the movements of
 Both daily data and hourly data were acquired. The hourly data was later aggregated to form 4-hourly, 8-hourly, 12-hourly data for experimentation.
 
 #### Data cleaning and wrangling
-Wavelet Transform
+Data from different sources were merged and aggregated. Missing values were dealt with. To filter out the high frequency noise, Wavelet Transform was used (Python _pywt_ package): 
+
+_Wavelet figure
+
+The data shown above was for the number of transactions made by My Wallet Users per day. The original data contains arbitrary high frequency noise---after being filtered out, we are left with a smoother curve that still captures major disruptions (which may correspond to events) in the data.  
 
 #### Exploratory data analysis
 ##### Correlation analysis
+The raw data from Quandl and GoinGecko have variables that are highly correlated with each other. This is illustrated in the correlation matrix plot below. Columns which have correlation of greater than 0.9 with BTCUSD and some other column, were dropped. 
+
+Fig. correlation matrix plot for raw data from Quandl and CoinGecko. 
+
+It is well known that the cryptocurrency markets generally move together. In order to examine how valid this statement is, the correlation matrix was calculated and plotted. It can be seen that most of the cryptocurrencies move in sync with each other except very few, e.g., USDT (which is tied to the US dollar), SHND, ZEC and CPC. 
+
+Fig. Correlation matrix of various cryptocurrencies. 
 
 ##### ARIMA
+ARIMA is a commonly used statistical forecasting method for time series data. In ARIMA, future values of a variable is assumed to be a linear function of several past observations and random errors. In this project, ARIMA can be incorporated into the methodology to address the issues of seasonality and non-stationary data. The figure below shows the rolling mean and standard deviation for the LTC closing prices, which clearly demonstrates that the data is non-stationary. 
+
+Fig. Rolling mean and standard deviation for the LTC closing prices (raw data). 
+
+Differencing was implemented to remove the trend and seasonality. Fig. 6 shows that the data is now stationary. Subsequently, Autocorrelation Function (ACF) and Partial Autocorrelation Function (PACF) were plotted to determine the p and q parameters of the ARIMA(p,d,q) model. The LTC_7day_return and ARIMA predicted LTC price are plotted in Fig. 7. The ARIMA predicted price was hence incorporated in the feature variables for the LSTM model.
+
+Fig. 6. Rolling mean and standard deviation for the LTC closing prices (after removing the trend and seasonality).
+
+Fig. 7. LTC_7day_return and ARIMA predicted LTC price. 
 
 ##### Log returns
 
