@@ -126,6 +126,7 @@ Different cryptocurrencies and different time frames were investigated. An examp
 Fig. 8. Counts of positive weekly returns (class 1) and negative weekly returns (class 0), for Litecoin. 
 
 ![Fig9](/proj2_fig9.png)
+
 Fig. 9. Distribution of weekly returns for Litecoin: (a) training data; (b) test data.
 
 In contrast to traditional Machine Learning algorithms, Long Short Term Memory (LSTM, one of the Recurrent Neural Networks) takes into account the sequential nature of the time series data. In this project, LSTM was used exclusively to analyse the processed time series data mentioned above. 
@@ -133,6 +134,7 @@ In contrast to traditional Machine Learning algorithms, Long Short Term Memory (
 Fig. 10 shows the weighted_avg scores for the test data, over 8 different training sessions. Overall, the training accuracy various slightly between different sessions, with a mean f1-score, precision and recall all equal to 0.6. This indicates that the model is quite stable and well-balanced, i.e., the f1-score, precision and recall values are almost identical. 
 
 ![Fig10](/proj2_fig10.png)
+
 Fig. 10. Validation scores for the test data for the daily dataset.
 
 As for the 12-hourly dataset, we have twice as much data, which is beneficial for the model. Fig. 11 shows the individual scores obtained for the test data, over 8 training sessions. The mean score is slightly worse than the daily dataset. Fig. 17 presents confusion matrix and classification report for one of the training instances. Again, the results are quite balanced, with slightly better accuracy in predicting for class 0, which is the negative returns. Fig. 12 shows the overall picture of overlapping the correct predictions with the original raw test data. The model excels in making predictions when positive return > 0.1 and negative return > 0.2. This is similar with the daily dataset, which confirms that the model can make predictions for extreme cases---this is where potential large profits or losses occur. 
@@ -141,6 +143,7 @@ As for the 12-hourly dataset, we have twice as much data, which is beneficial fo
 Fig. 11. Validation scores for the test data for the 12-hourly dataset.
 
 ![Fig12](/proj2_fig12.png)
+
 Fig. 12. Correct predictions vs the raw labeled test data for the 12-hourly dataset.
 
 #### Trading strategy
