@@ -80,27 +80,32 @@ The data shown above was for the number of transactions made by My Wallet Users 
 ##### Correlation analysis
 The raw data from Quandl and GoinGecko have variables that are highly correlated with each other. This is illustrated in the correlation matrix plot in Fig. 2. Columns which have correlation of greater than 0.9 with BTCUSD and some other column, were dropped. 
 
+![Fig2](/proj2_fig2.png)
 Fig. 2. correlation matrix plot for raw data from Quandl and CoinGecko. 
 
 It is well known that the cryptocurrency markets generally move together. In order to examine how valid this statement is, the correlation matrix was calculated and plotted (Fig. 3). It can be seen that most of the cryptocurrencies move in sync with each other except very few, e.g., USDT (which is tied to the US dollar), SHND, ZEC and CPC. 
 
+![Fig3](/proj2_fig3.png)
 Fig. 3. Correlation matrix of various cryptocurrencies. 
 
 ##### ARIMA
 ARIMA is a commonly used statistical forecasting method for time series data. In ARIMA, future values of a variable is assumed to be a linear function of several past observations and random errors. In this project, ARIMA can be incorporated into the methodology to address the issues of seasonality and non-stationary data. Fig. 4 shows the rolling mean and standard deviation for the LTC closing prices, which clearly demonstrates that the data is non-stationary. 
 
+![Fig4](/proj2_fig4.png)
 Fig. 4. Rolling mean and standard deviation for the LTC closing prices (raw data). 
 
 Differencing was implemented to remove the trend and seasonality. Fig. 5 shows that the data is now stationary. Subsequently, Autocorrelation Function (ACF) and Partial Autocorrelation Function (PACF) were plotted to determine the p and q parameters of the ARIMA(p,d,q) model. The LTC_7day_return and ARIMA predicted LTC price are plotted in Fig. 6. The ARIMA predicted price was hence incorporated in the feature variables for the LSTM model.
 
+![Fig5](/proj2_fig5.png)
 Fig. 5. Rolling mean and standard deviation for the LTC closing prices (after removing the trend and seasonality).
 
+![Fig6](/proj2_fig6.png)
 Fig. 6. LTC_7day_return and ARIMA predicted LTC price. 
 
 ##### Log returns
 Raw time series price data generally changes very abruptly. By converting the price into its log form, the changes are more gradual, which may help the analysis later on. Also, since the returns are not normally distributed (in fact, they are lognormally distributed), by converting the returns into Log, we will obtain normally distributed values (i.e., taking log of lognormal would give us normally distributed values). Fig. 7 shows the Log Returns of different time periods. As we can see, different periodicity is present for different time frames.  
 
-
+![Fig7](/proj2_fig7.png)
 Fig. 7. Log of (a) daily return, (b) weekly return, (c) 30-day return and (d) 60-day return, for BTC/USD. 
 
 #### Machine learning techniques
@@ -117,21 +122,25 @@ The Deep Learning part of this project is implemented on Google Colab (which run
 
 Different cryptocurrencies and different time frames were investigated. An example is predicting the Litecoin weekly returns. Fig. 8 shows the comparison of counts between positive returns (class 1) and negative returns (class 0). The occurrence of the two classes is fairly similar; we don’t have an imbalanced class problem.  Fig. 9 shows the distribution of weekly returns for both the training data and test data. As expected, training data contains a wider range of returns (from -0.75 to 1.25, N.B. these are in Log returns) than the test data. This is advantageous for the Deep Learning model, as the model has more extreme cases to learn from. 
 
-
+![Fig8](/proj2_fig8.png)
 Fig. 8. Counts of positive weekly returns (class 1) and negative weekly returns (class 0), for Litecoin. 
 
+![Fig9](/proj2_fig9.png)
 Fig. 9. Distribution of weekly returns for Litecoin: (a) training data; (b) test data.
 
 In contrast to traditional Machine Learning algorithms, Long Short Term Memory (LSTM, one of the Recurrent Neural Networks) takes into account the sequential nature of the time series data. In this project, LSTM was used exclusively to analyse the processed time series data mentioned above. 
 
 Fig. 10 shows the weighted_avg scores for the test data, over 8 different training sessions. Overall, the training accuracy various slightly between different sessions, with a mean f1-score, precision and recall all equal to 0.6. This indicates that the model is quite stable and well-balanced, i.e., the f1-score, precision and recall values are almost identical. 
 
+![Fig10](/proj2_fig10.png)
 Fig. 10. Validation scores for the test data for the daily dataset.
 
 As for the 12-hourly dataset, we have twice as much data, which is beneficial for the model. Fig. 11 shows the individual scores obtained for the test data, over 8 training sessions. The mean score is slightly worse than the daily dataset. Fig. 17 presents confusion matrix and classification report for one of the training instances. Again, the results are quite balanced, with slightly better accuracy in predicting for class 0, which is the negative returns. Fig. 12 shows the overall picture of overlapping the correct predictions with the original raw test data. The model excels in making predictions when positive return > 0.1 and negative return > 0.2. This is similar with the daily dataset, which confirms that the model can make predictions for extreme cases---this is where potential large profits or losses occur. 
 
+![Fig11](/proj2_fig11.png)
 Fig. 11. Validation scores for the test data for the 12-hourly dataset.
 
+![Fig12](/proj2_fig12.png)
 Fig. 12. Correct predictions vs the raw labeled test data for the 12-hourly dataset.
 
 #### Trading strategy
